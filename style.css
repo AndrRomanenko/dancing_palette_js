@@ -1,3 +1,88 @@
-.container {
-    background-color: #ffd668;
+body{
+    background-color: #f1eee3;
+    font-family: 'Roboto', sans-serif;
 }
+.column{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.container{
+    display: flex;
+    height: 90vh;
+    position: relative;
+
+
+    
+}
+.brick{
+    margin: 4%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+.brick:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.copied{
+    color: #f1eee3;
+    background-color: #383838 !important;
+}
+.message{
+    font-weight: 600;
+    color: #4e4e4e;
+    display: flex;
+    background-color: #ffffffea;
+    border-radius: 10px;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    margin: 3%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.425);
+    animation: show-hide 2.4s;
+}
+.popUpContainer{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    position:absolute;
+    top:0;
+    right:0;
+    z-index: 100;
+}
+.anim1{
+    animation: animation-type1 6.05s infinite;
+}
+.anim2{
+    animation: animation-type2 6.05s infinite;
+}
+@keyframes animation-type1{
+    12% {transform: rotateZ(90deg)}
+    25% {transform: rotateZ(0)}
+    37% {transform: rotateZ(-90deg)}
+    49% {transform: rotateZ(0)}
+    50% {transform: rotateX(0)}
+    62% {transform: rotateX(90deg)}
+    74% {transform: rotateX(0)}
+    75% {transform: rotateY(0)}
+    87% {transform: rotateY(90deg)}
+    100% {transform: rotateY(0)}
+}
+@keyframes animation-type2{
+    12% {transform: rotateZ(-90deg)}
+    25% {transform: rotateZ(0)}
+    37% {transform: rotateZ(90deg)}
+    49% {transform: rotateZ(0)}
+    50% {transform: rotateY(0)}
+    62% {transform: rotateY(90deg)}
+    74% {transform: rotateY(0)}
+    75% {transform: rotateX(0)}
+    87% {transform: rotateX(90deg)}
+    100% {transform: rotateX(0)}
+}
+
