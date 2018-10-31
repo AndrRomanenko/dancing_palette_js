@@ -38,17 +38,15 @@ body{
     display: flex;
     background-color: #ffffffea;
     border-radius: 10px;
-    min-height: 40px;
+    height: 0px;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
-    padding: 5%;
     margin: 3%;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.425);
-    animation: show-hide 2.4s;
+    animation: show-hide 2s;
 }
 .popUpContainer{
-    display: flex;
-    flex-direction: column;
     width: 20%;
     position:absolute;
     top:0;
@@ -84,5 +82,11 @@ body{
     75% {transform: rotateX(0)}
     87% {transform: rotateX(90deg)}
     100% {transform: rotateX(0)}
+}
+@keyframes show-hide{
+    0% {opacity: 0; height: 0px;}
+    25% {opacity: 1; height: 45px;}
+    75% {opacity: 1; height: 45px;}
+    100% {opacity: 0; height: 0px;}
 }
 

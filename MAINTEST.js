@@ -142,7 +142,7 @@ class Brick {
       }, 1000);
       setTimeout(() => {
         container.removeChild(msg.element);        
-      }, 2300)
+      }, 2000)
     })
   }
 }
