@@ -1,25 +1,26 @@
+module.exports = {
 // Проверка цвета на валидность
-checkColor = (color) => {
+checkColor(color){
     if(isNaN(color)){
         return false;
     }else{
 
         return true;
     }
-};
+},
 
 // Генерация палтиры при итерациях
-palette = (color) => {
+palette(color){
     let currentColor = color;
     return function() {
         const tempColor = currentColor;
         currentColor = shaderColor(currentColor);
         return tempColor;
     }
-};
+},
 
 // Осветление цвета
-function shaderColor (color) {
+shaderColor(color) {
     var num = parseInt(color.slice(1), 16);
     var amt = Math.round(2.55 * 9);
     var R = (num >> 16) + amt;
@@ -30,4 +31,5 @@ function shaderColor (color) {
         (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
         (B < 255 ? B < 1 ? 0 : B : 255)).toString (16).slice (1))
     return new_color;
-};
+}
+}

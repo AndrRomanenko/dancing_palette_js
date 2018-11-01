@@ -1,5 +1,5 @@
 // Создание колонки по родительскому цвету
-function createColumn(color) {
+module.exports = function(color) {
     const column = document.createElement('div');
     column.className = 'column';
     let fragment = document.createDocumentFragment();

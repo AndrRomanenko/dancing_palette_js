@@ -1,5 +1,5 @@
 // Еденица проекта - блок цвета
-class Brick {
+module.exports =  class {
     constructor(color) {
       this.color = color;
       this.element = document.createElement('div');
@@ -22,4 +22,4 @@ class Brick {
         }, 2000)
       })
     }
-}
+  }

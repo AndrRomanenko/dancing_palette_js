@@ -1,5 +1,5 @@
 // Уведомление о копировании
-class PopUpMessage {
+ module.exports = class {
     constructor(msg) {
       this.element = document.createElement('div');
       this.element.className = 'message';
