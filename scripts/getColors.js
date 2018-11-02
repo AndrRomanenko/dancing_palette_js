@@ -1,6 +1,10 @@
+const checkColor = require('./paletteUtils').checkColor;
+const { URL, TABLE_WIDTH } = require('../constants');
+
+
 module.exports = function(arr = []) {
     return new Promise((resolve, reject) => {
-        fetch('http://www.colr.org/json/colors/random/50')
+        fetch(URL)
         .then(res => res.json())
         .then(res => {
             const colors = [...arr];
@@ -12,15 +16,15 @@ module.exports = function(arr = []) {
             return colors;
         })
         .then((res) => {
-            if(res.length < 8){
+            if(res.length < TABLE_WIDTH){
                 console.log('not enought colors! only:' + res.length);
                 resolve(getColors(res));
             } else {
-                res.splice(8);
+                res.splice(TABLE_WIDTH);
                 console.log('Enougth! ' + res)
                 resolve(res);
             }
         })
-        .catch(err => reject(new Error(err)));
+        .catch((err) => reject(new Error(err)));
     })
 }

@@ -1,30 +1,15 @@
 getColors = require('./scripts/getColors');
 createColumn = require('./scripts/createColumn');
-goDance = require('./scripts/partyMethods').goDance;
-addAnimClass = require('./scripts/partyMethods').addAnimClass;
-partyStart = require('./scripts/partyMethods').partyStart;
-checkColor = require('./scripts/paletteMethods').checkColor;
-palette = require('./scripts/paletteMethods').palette;
-shaderColor = require('./scripts/paletteMethods').shaderColor;
-Brick = require('./scripts/Brick');
-PopUpMessage = require('./scripts/PopUpMessage');
+partyStart = require('./scripts/partyUtils');
 
+// Gradient Table Container
+const container = document.getElementsByClassName('container')[0];
 
-// Контейнер для PopUp сообщений
-const popUpContainer = document.createElement('div');
-popUpContainer.className = 'popUpContainer';
-document.body.appendChild(popUpContainer);
-
-//Контейнер для таблицы градиента
-const container = document.createElement('div');
-container.className = 'container';
-document.body.appendChild(container);
-
-//Получили массив цветов, создаём и монтируем блоки
+// Received an array of colors, create and assemble blocks
 getColors()
-.then(res => {
-    let fragment = document.createDocumentFragment();
-    res.forEach((item) => {
+.then(colorArr => {
+    const fragment = document.createDocumentFragment();
+    colorArr.forEach((item) => {
     const column = createColumn("#" + item);
     fragment.appendChild(column);
   })
