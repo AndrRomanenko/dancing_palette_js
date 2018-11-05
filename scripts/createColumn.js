@@ -1,5 +1,5 @@
 const { shaderColor } = require('./paletteUtils');
-const { Brick } = require('./Brick');
+const Brick = require('./Brick');
 const { TABLE_HEIGHT } = require('../constants');
 
 
@@ -31,6 +31,4 @@ function palette(color){
 };
 
 
-module.exports = {
-  createColumn
-};
+module.exports = createColumn;

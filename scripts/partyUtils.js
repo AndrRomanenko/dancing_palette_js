@@ -31,6 +31,4 @@ function partyStart() {
     setTimeout(() => goDance(), 24300);
 }
 
-module.exports = {
-    partyStart
-}
+module.exports = partyStart;

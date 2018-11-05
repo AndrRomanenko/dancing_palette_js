@@ -7,6 +7,4 @@ class PopUpMessage {
   }
 }
 
-module.exports = {
-   PopUpMessage
-}
+module.exports = PopUpMessage;

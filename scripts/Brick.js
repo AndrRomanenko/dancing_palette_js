@@ -1,4 +1,4 @@
-const { PopUpMessage } = require('./PopUpMessage');
+const PopUpMessage = require('./PopUpMessage');
 const { STYLE_TIMER, NOTIFICATION_TIMER } = require('../constants');
 
 
@@ -33,4 +33,4 @@ class Brick {
   }
 }
 
-module.exports = { Brick };
+module.exports = Brick;

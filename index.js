@@ -1,6 +1,6 @@
-const { getColors } = require('./scripts/getColors');
-const { createColumn } = require('./scripts/createColumn');
-const { partyStart } = require('./scripts/partyUtils');
+const getColors = require('./scripts/getColors');
+const createColumn = require('./scripts/createColumn');
+const partyStart = require('./scripts/partyUtils');
 
 // Gradient Table Container
 const container = document.getElementsByClassName('container')[0];

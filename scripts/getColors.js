@@ -29,6 +29,4 @@ function getColors(arr = []) {
     })
 }
 
-module.exports = {
-    getColors
-}
+module.exports = getColors;

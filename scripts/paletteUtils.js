@@ -24,5 +24,5 @@ function checkColor(color){
         
 module.exports = {
     checkColor,
-    palette
+    shaderColor
 }
