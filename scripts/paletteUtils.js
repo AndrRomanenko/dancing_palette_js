@@ -10,26 +10,28 @@ function shaderColor(color) {
         (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
         (B < 255 ? B < 1 ? 0 : B : 255)).toString (16).slice (1))
     return new_color;
-}
+};
+
+// Color check for validity
+function checkColor(color){
+    if(isNaN(color)){
+        return false;
+    } else {
+        return true;
+    }
+};
+
+// Palette generation during iterations
+function palette(color){
+    let currentColor = color;
+    return function() {
+        const tempColor = currentColor;
+        currentColor = shaderColor(currentColor);
+        return tempColor;
+    }
+};
         
 module.exports = {
-    
-    // Color check for validity
-    checkColor(color){
-        if(isNaN(color)){
-            return false;
-        } else {
-            return true;
-        }
-    },
-
-    // Palette generation during iterations
-    palette(color){
-        let currentColor = color;
-        return function() {
-            const tempColor = currentColor;
-            currentColor = shaderColor(currentColor);
-            return tempColor;
-        }
-    },
+    checkColor,
+    palette
 }

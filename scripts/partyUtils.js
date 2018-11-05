@@ -1,4 +1,3 @@
-
 // Adding a class for animation
 function addAnimClass(element) {
     const key = Math.floor(Math.random() * 3);
@@ -19,9 +18,13 @@ function goDance() {
     elements.forEach(elem => addAnimClass(elem))
 }
 
-module.exports = function() {
-    // Running music and animation
+// Run music and animation
+function partyStart() {
     const audio = new Audio('./music.mp3');
     audio.play();
     setTimeout(() => goDance(), 24300);
+}
+
+module.exports = {
+    partyStart
 }

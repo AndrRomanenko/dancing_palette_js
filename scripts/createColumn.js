@@ -3,7 +3,6 @@ const Brick = require('./Brick');
 const TABLE_HEIGHT = require('../constants').TABLE_HEIGHT;
 
 
-
 // Creating a column by parent color
 module.exports = function(color) {
     const column = document.createElement('div');

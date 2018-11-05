@@ -1,5 +1,5 @@
 // Copy Notification
-class PopUpMassege{
+class PopUpMassege {
   constructor(msg) {
     this.element = document.createElement('div');
     this.element.className = 'message';

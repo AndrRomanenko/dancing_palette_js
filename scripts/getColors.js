@@ -2,7 +2,7 @@ const checkColor = require('./paletteUtils').checkColor;
 const { URL, TABLE_WIDTH } = require('../constants');
 
 
-module.exports = function(arr = []) {
+function getColors(arr = []) {
     return new Promise((resolve, reject) => {
         fetch(URL)
         .then(res => res.json())
@@ -27,4 +27,8 @@ module.exports = function(arr = []) {
         })
         .catch((err) => reject(new Error(err)));
     })
+}
+
+module.exports = {
+    getColors
 }
