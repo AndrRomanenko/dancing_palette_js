@@ -1,5 +1,5 @@
 // Copy Notification
-class PopUpMassege {
+class PopUpMessage {
   constructor(msg) {
     this.element = document.createElement('div');
     this.element.className = 'message';
@@ -7,4 +7,6 @@ class PopUpMassege {
   }
 }
 
-module.exports = PopUpMassege;
+module.exports = {
+   PopUpMessage
+}

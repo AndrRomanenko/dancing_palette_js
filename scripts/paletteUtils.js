@@ -14,22 +14,13 @@ function shaderColor(color) {
 
 // Color check for validity
 function checkColor(color){
-    if(isNaN(color)){
+    if(isNaN(color)) {
         return false;
     } else {
         return true;
     }
 };
 
-// Palette generation during iterations
-function palette(color){
-    let currentColor = color;
-    return function() {
-        const tempColor = currentColor;
-        currentColor = shaderColor(currentColor);
-        return tempColor;
-    }
-};
         
 module.exports = {
     checkColor,

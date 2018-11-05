@@ -1,16 +1,22 @@
 // Adding a class for animation
 function addAnimClass(element) {
-    const key = Math.floor(Math.random() * 3);
-    switch(key){
+    const key = generateRandomKey();
+    switch (key) {
         case 1:
             element.classList.add('anim1');
             break;
         case 2:
             element.classList.add('anim2');
             break;
-        default:        
+        default:
+            // stay with default style        
     }
 };
+
+// generate random key 0-2
+function generateRandomKey() {
+    return Math.floor(Math.random() * 3);
+}
 
 // Adding animation to all blocks
 function goDance() {
