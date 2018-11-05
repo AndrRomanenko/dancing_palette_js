@@ -1,12 +1,21 @@
+const getColors = require('./scripts/getColors');
+const createColumn = require('./scripts/createColumn');
+const partyStart = require('./scripts/partyUtils');
 
-alert('im index.js');
+// Gradient Table Container
+const container = document.getElementsByClassName('container')[0];
 
-requireJS('./scripts/init.js')
-    .then(() => {
-        alert("init is ok!");
-        newDiv();
+// Received an array of colors, create and assemble blocks
+getColors()
+.then(colorArr => {
+  const fragment = document.createDocumentFragment();
 
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+  colorArr.forEach((item) => {
+    const column = createColumn("#" + item);
+    fragment.appendChild(column);
+  })
+
+  container.appendChild(fragment);
+  partyStart();
+})
+
