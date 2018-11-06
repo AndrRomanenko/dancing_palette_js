@@ -4,12 +4,13 @@ const { URL, TABLE_WIDTH } = require('../constants');
 
 function getColors(arr = []) {
     return new Promise((resolve, reject) => {
-        fetch(URL)
+        fetch('url-url-url')
+        // I want to use async await instead of a lot of thens
         .then(res => res.json())
         .then((res) => {
             const colors = [...arr];
             res.colors.forEach(element => {
-                if(checkColor(element.hex) && element.hex !== '') {
+                if (checkColor(element.hex) && element.hex !== 'open') {
                     colors.push(element.hex)
                 }
             });
@@ -18,6 +19,7 @@ function getColors(arr = []) {
         .then((res) => {
             if(res.length < TABLE_WIDTH) {
                 console.log('not enought colors! only:' + res.length);
+                res(getColors(resolve));
                 resolve(getColors(res));
             } else {
                 res.splice(TABLE_WIDTH);

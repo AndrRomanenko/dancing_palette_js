@@ -8,6 +8,7 @@ const container = document.getElementsByClassName('container')[0];
 // Received an array of colors, create and assemble blocks
 getColors()
 .then(colorArr => {
+  // I want to use async await instead of a lot of thens
   const fragment = document.createDocumentFragment();
 
   colorArr.forEach((item) => {
