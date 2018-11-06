@@ -13,16 +13,21 @@ function shaderColor(color) {
 };
 
 // Color check for validity
-function checkColor(color){
-    if(isNaN(color)) {
-        return false;
-    } else {
-        return true;
-    }
+function checkColors(colorArr){
+    const checked = [];
+
+    colorArr.forEach(element => {
+        if (!isNaN(element) && element !== '') {
+            checked.push(element);
+        }
+    })
+    console.log('checked: ',checked);
+    return checked;
+
 };
 
         
 module.exports = {
-    checkColor,
+    checkColors,
     shaderColor
 }
