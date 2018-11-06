@@ -14,20 +14,12 @@ function shaderColor(color) {
 };
 
 // Color check for validity
-function checkColors(colorArr){
-  const checked = [];
-
-  colorArr.forEach(element => {
-    if (!isNaN(element) && element !== '') {
-      checked.push(element);
-    }
-  })
-    
-  return checked;
-};
+const getCheckedColors = (colorArr) => {
+  return colorArr.filter(color => !isNaN(color) && color !== '');
+}
 
         
 module.exports = {
-  checkColors,
+  getCheckedColors,
   shaderColor
 }
