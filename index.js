@@ -6,16 +6,15 @@ const partyStart = require('./scripts/partyUtils');
 const container = document.getElementsByClassName('container')[0];
 
 // Received an array of colors, create and assemble blocks
-getColors()
-.then(colorArr => {
+(async () => {
+  const colorArr = await getColors();
   const fragment = document.createDocumentFragment();
 
   colorArr.forEach((item) => {
     const column = createColumn("#" + item);
     fragment.appendChild(column);
   })
-
   container.appendChild(fragment);
   partyStart();
-})
+})();
 

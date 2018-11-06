@@ -1,32 +1,40 @@
-const { checkColor } = require('./paletteUtils');
+const { checkColors } = require('./paletteUtils');
 const { URL, TABLE_WIDTH } = require('../constants');
 
 
-function getColors(arr = []) {
-    return new Promise((resolve, reject) => {
-        fetch(URL)
-        .then(res => res.json())
-        .then((res) => {
-            const colors = [...arr];
-            res.colors.forEach(element => {
-                if(checkColor(element.hex) && element.hex !== '') {
-                    colors.push(element.hex)
-                }
-            });
-            return colors;
-        })
-        .then((res) => {
-            if(res.length < TABLE_WIDTH) {
-                console.log('not enought colors! only:' + res.length);
-                resolve(getColors(res));
-            } else {
-                res.splice(TABLE_WIDTH);
-                console.log('Enougth! ' + res)
-                resolve(res);
-            }
-        })
-        .catch((err) => reject(new Error(err)));
+const getColors = async (arr = []) => {
+    const data = await getData(URL);
+    const colors = [...arr,...checkColors(data)];
+
+    if (colors.length < TABLE_WIDTH) {
+        console.log('not enought colors! only:' + colors.length);
+
+        return await getColors(colors);
+    } else {
+        colors.splice(TABLE_WIDTH);
+        console.log('Enougth! ' + colors)
+
+        return(colors);
+    }
+};
+
+const getData = async (url) => {
+    const data = await fetch(url);
+    const jsonData = await data.json();
+    const result = formatData(jsonData);
+
+    return result;
+};
+
+function formatData (data) {
+    const resArr = [];
+
+    data.colors.forEach(element => {
+        resArr.push(element.hex)
     })
-}
+
+    return resArr;
+};
+
 
 module.exports = getColors;
